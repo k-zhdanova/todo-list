@@ -27,40 +27,16 @@
   color: var(--neutral-0);
 }
 
-.root.primary-outlined {
-  background-color: var(--neutral-100);
-  border-color: var(--primary-200);
-  color: var(--primary-600);
-}
-
 .root.secondary {
   color: var(--primary-600);
   border-color: var(--primary-600);
   background: var(--neutral-0);
 }
 
-.root.secondary-outlined {
-  color: var(--primary-600);
-  border-color: var(--primary-600);
-  background: var(--primary-100);
-}
-
 .root.alert {
   color: var(--neutral-0);
   border-color: var(--danger-600);
   background: var(--danger-600);
-}
-
-.root.success {
-  color: var(--neutral-0);
-  border-color: var(--success-600);
-  background: var(--success-600);
-}
-
-.root.warning {
-  color: var(--neutral-0);
-  border-color: var(--warning-600);
-  background: var(--warning-600);
 }
 
 .root svg {
@@ -75,11 +51,6 @@
 .root.secondary:hover {
   background-color: var(--primary-100);
 }
-
-.root.secondary-outlined:hover {
-  background-color: var(--primary-200);
-}
-
 
 @media (max-width: 768px) {
   .root {

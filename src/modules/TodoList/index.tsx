@@ -104,6 +104,7 @@ export const TodoList = () => {
     <div className={styles.root}>
       <div className={styles.header}>
         <IconButton
+          className={styles.addBtn}
           style="primary"
           action="add"
           onClick={toggle}

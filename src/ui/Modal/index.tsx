@@ -22,6 +22,7 @@ export default function Modal({ isOpen, onClose, children }: ModalType) {
     <div className={styles.modalWrapper} onClick={onWrapperClick}>
       <div className={styles.modal}>
         <IconButton
+          style="plain"
           className={styles.closeBtn}
           onClick={onClose}
           action="close"

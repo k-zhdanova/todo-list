@@ -12,8 +12,6 @@ export const CATEGORIES: DropdownOption[] = [
   { value: 'shopping', label: 'Shopping', color: '#70d4ff'},
   { value: 'health', label: 'Health', color: '#fc8bed'},
   { value: 'finance', label: 'Finance', color: '#7aa1fa'},
-  { value: 'entertainment', label: 'Entertainment', color: '#f7bec2'},
-  { value: 'education', label: 'Education', color: '#fc8b98'},
   { value: 'travel', label: 'Travel', color: '#baffd2'},
   { value: 'home', label: 'Home', color: '#f4fc8b'},
   { value: 'others', label: 'Others', color: '#d4d4d4'},

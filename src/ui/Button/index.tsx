@@ -14,12 +14,8 @@ interface ButtonProps {
   style?:
   | 'plain'
   | 'primary'
-  | 'primary-outlined'
   | 'secondary'
-  | 'secondary-outlined'
-  | 'alert'
-  | 'warning'
-  | 'success';
+  | 'alert';
 }
 
 export const Button = ({
