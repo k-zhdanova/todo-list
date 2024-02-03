@@ -3,10 +3,10 @@
 [See the LIVE version](https://k-zhdanova.github.io/todo-list/) 
 
 
-1. **Development**
+## **Development**
 
-	To run the project locally, navigate to the project directory.\
-	First, install all the dependencies:
+To run the project locally, navigate to the project directory.\
+First, install all the dependencies:
 
 ```bash
 yarn install
@@ -21,9 +21,9 @@ yarn start
 Open [http://localhost:3003](http://localhost:3003) to view it in the browser.
 
 
-2. **Usage:**
+## **Usage**
 
-  	The TO-DO list offers the following features:
+The TO-DO list offers the following features:
 
  - Create, edit, and delete tasks.
  - Mark tasks as complete or incomplete (both in edit mode and by clicking on the checkbox).
