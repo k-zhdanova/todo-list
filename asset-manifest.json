@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/todo-list/static/css/main.d5034717.css",
+    "main.js": "/todo-list/static/js/main.9bd16965.js",
+    "static/media/logo.svg": "/todo-list/static/media/logo.c7050a9cd3036265c321d8c8f8f1aef3.svg",
+    "static/media/carret.svg": "/todo-list/static/media/carret.5bfb314b59d3150c7e29bbb87d2c70df.svg",
+    "static/media/draggable.svg": "/todo-list/static/media/draggable.9b74a1896414b014b9a83db3c2f27a8c.svg",
+    "static/media/delete.svg": "/todo-list/static/media/delete.f01619a720dd5a07623268a6a2a874bb.svg",
+    "index.html": "/todo-list/index.html",
+    "static/media/add.svg": "/todo-list/static/media/add.1e99e513ba99f3ef59ca4f0f36aac633.svg",
+    "static/media/check.svg": "/todo-list/static/media/check.d0248715428ef5b6fe695b11471093d6.svg",
+    "static/media/edit.svg": "/todo-list/static/media/edit.d8154a6270e029a7ed089002740c8825.svg",
+    "static/media/close.svg": "/todo-list/static/media/close.6e838064705da848df5123b0f7352214.svg",
+    "main.d5034717.css.map": "/todo-list/static/css/main.d5034717.css.map",
+    "main.9bd16965.js.map": "/todo-list/static/js/main.9bd16965.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d5034717.css",
+    "static/js/main.9bd16965.js"
+  ]
+}
