@@ -1,46 +1,33 @@
-# Getting Started with Create React App
+# TO-DO list
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+[See the LIVE version](https://k-zhdanova.github.io/todo-list/) 
 
-## Available Scripts
 
-In the project directory, you can run:
+1. **Development**
 
-### `npm start`
+	To run the project locally, navigate to the project directory.\
+	First, install all the dependencies:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```bash
+yarn install
+```
+    
+Then, run the project:
+    
+```bash
+yarn start
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Open [http://localhost:3003](http://localhost:3003) to view it in the browser.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+2. **Usage:**
 
-### `npm run build`
+  	The TO-DO list offers the following features:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+ - Create, edit, and delete tasks.
+ - Mark tasks as complete or incomplete (both in edit mode and by clicking on the checkbox).
+ - Reorder the existing list with drag-and-drop functionality.
+ - Filter the list by status and category.
+ - Automatically move completed tasks to the bottom of the list, marking them as completed.
+ - Persist tasks using IndexedDB to prevent loss after refreshing the page.
