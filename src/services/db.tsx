@@ -1,5 +1,5 @@
 import Dexie, { Table } from 'dexie';
-import { ListItemType } from '../types';
+import { ListItemType } from '../modules/TodoList/types';
 
 const DB_NAME = 'todoList';
 
@@ -9,7 +9,7 @@ export class ListService extends Dexie {
   constructor() {
     super(DB_NAME);
     this.version(1).stores({
-      list: '++id, text, isDone, order'
+      list: '++id, title, description, category, isDone, order'
     });
   }
 }

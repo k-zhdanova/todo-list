@@ -1,9 +1,11 @@
-import logo from '../../assets/logo.svg';
+import { ReactComponent as Logo } from '../../assets/logo.svg';
+import styles from './index.module.css';
 
 export const Header = () => {
   return (
-    <header className="App-header">
-      <img src={logo} className="App-logo" alt="logo" />
+    <header className={styles.root}>
+      <Logo />
+      <h1>To-Do App</h1>
     </header>
   )
 }

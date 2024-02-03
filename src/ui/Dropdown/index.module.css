@@ -1,0 +1,101 @@
+.root {
+  width: fit-content;
+  min-width: 150px;
+  position: relative;
+}
+
+.root.auto {
+  width: fit-content;
+}
+
+.root.full {
+  width: 100%;
+}
+
+.options {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  padding: 4px;
+  background-color: var(--neutral-0);
+  box-shadow: 0px 4px 8px 0px rgba(33, 33, 52, 0.1);
+  border: 1px solid var(--neutral-150);
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  font-size: 14px;
+  line-height: 20px;
+  max-height: 200px;
+  overflow: auto;
+}
+
+.option {
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.option.selected,
+.option:hover {
+  background-color: var(--primary-100);
+}
+
+.selectedOption {
+  padding: 10px 12px;
+  background-color: var(--neutral-0);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  cursor: pointer;
+}
+
+.selectedOption .value.withColor {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.root.full .selectedOption {
+  justify-content: space-between;
+}
+
+.root.shadow .selectedOption {
+  box-shadow: 0px 4px 8px 0px rgba(33, 33, 52, 0.1);
+}
+
+.root.border .selectedOption {
+  border: 1px solid var(--neutral-200);
+}
+
+.selectedOption svg {
+  width: 12px;
+  height: 12px;
+  color: var(--neutral-500);
+}
+
+.colorBadge {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+
+@media (max-width: 768px) {
+  .options {
+    font-size: 16px;
+  }
+  .selectedOption {
+    font-size: 14px;
+  }
+}

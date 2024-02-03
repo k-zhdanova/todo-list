@@ -1,7 +1,7 @@
-
 import React, { ReactNode } from 'react';
 import ReactDOM from 'react-dom';
-import { ModalContent, ModalOverlay, ModalWrapper } from "./index.style"
+import styles from './index.module.css';
+import { IconButton } from '../Button';
 
 interface ModalType {
   isOpen: boolean;
@@ -19,14 +19,16 @@ export default function Modal({ isOpen, onClose, children }: ModalType) {
   };
 
   return ReactDOM.createPortal(
-    <ModalOverlay onClick={onWrapperClick}>
-      <ModalWrapper>
-        <ModalContent>
-          <button onClick={onClose}>xxx</button>
-          {children}
-        </ModalContent>
-      </ModalWrapper>
-    </ModalOverlay>,
+    <div className={styles.modalWrapper} onClick={onWrapperClick}>
+      <div className={styles.modal}>
+        <IconButton
+          className={styles.closeBtn}
+          onClick={onClose}
+          action="close"
+        />
+        {children}
+      </div>
+    </div>,
     document.body,
   );
 }

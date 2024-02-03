@@ -1,0 +1,12 @@
+.root {
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  color: var(--neutral-800);
+  display: flex;
+  gap: 4px;
+}
+
+.required {
+  color: var(--danger-600);
+}

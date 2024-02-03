@@ -1,0 +1,39 @@
+
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.root li {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s ease-in-out;
+}
+
+.root li a {
+  padding: 8px;
+}
+
+.root li.active {
+  background-color: var(--neutral-0);
+  color: var(--primary-700);
+  box-shadow: 0px 1px 4px 0px rgba(26, 26, 67, 0.10);
+}
+
+.root li:hover {
+  background-color: var(--neutral-0);
+}
+
+.rotate {
+  transform: rotate(180deg);
+}
+
+.error {
+  border: 1px solid var(--danger-600) !important;
+}

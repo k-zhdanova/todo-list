@@ -1,0 +1,41 @@
+.root {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--neutral-0);
+  border: 1px solid var(--neutral-300);
+  border-radius: 4px;
+  transition: all 0.1s ease-in-out;
+  flex-shrink: 0;
+}
+
+.checkbox.disabled {
+  cursor: not-allowed;
+  background-color: var(--neutral-100);
+  border-color: var(--neutral-300);
+  color: var(--neutral-400);
+}
+
+.checkbox svg {
+  opacity: 0;
+  transition: all 0.1s ease-in-out;
+}
+
+.checkbox.checked {
+  background-color: var(--primary-600);
+  border-color: var(--primary-600);
+  color: var(--neutral-0);
+}
+
+.checkbox.checked svg {
+  opacity: 1;
+}
