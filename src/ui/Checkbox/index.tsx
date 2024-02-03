@@ -4,13 +4,12 @@ import cn from 'classnames';
 import { ReactComponent as CheckIcon } from '../../assets/icons/check.svg';
 
 interface CheckboxProps {
-  disabled?: boolean;
   checked?: boolean;
   label?: React.ReactNode;
   onChange?: (value: boolean) => void;
 }
 
-export const Checkbox = ({ disabled, checked, label, onChange }: CheckboxProps) => {
+export const Checkbox = ({ checked, label, onChange }: CheckboxProps) => {
   const [isChecked, setIsChecked] = useState<boolean>(checked || false);
 
   useEffect(() => {
@@ -18,12 +17,10 @@ export const Checkbox = ({ disabled, checked, label, onChange }: CheckboxProps) 
   }, [checked]);
 
   const handleClick = () => {
-    if (!disabled) {
-      const newCheckedState = !isChecked;
-      setIsChecked(newCheckedState);
-      if (onChange) {
-        onChange(newCheckedState);
-      }
+    const newCheckedState = !isChecked;
+    setIsChecked(newCheckedState);
+    if (onChange) {
+      onChange(newCheckedState);
     }
   };
 

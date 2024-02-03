@@ -9,7 +9,7 @@ import { ListItemType } from "../types";
 import { ListForm } from "../ListIForm";
 import { IconButton } from "../../../ui/Button";
 import { ReactComponent as DraggableIcon } from '../../../assets/icons/draggable.svg'
-import { CATEGORIES } from '../constants';
+import { CATEGORIES, MESSAGES } from '../constants';
 import ConfirmationModal from '../../../components/ConfirmationModal';
 
 export const ListItem = ({ listItem }: { listItem: ListItemType }) => {
@@ -64,9 +64,9 @@ const DeleteButton = ({ listItem }: { listItem: ListItemType }) => {
 
     try {
       db.list.delete(listItem.id);
-      showSuccessToast(`Successfully deleted`);
+      showSuccessToast(MESSAGES.DELETE.SUCCESS);
     } catch (error) {
-      showErrorToast(`Failed to delete`);
+      showErrorToast(MESSAGES.DELETE.ERROR);
     }
   }
 
@@ -98,9 +98,9 @@ const EditButton = ({ listItem }: { listItem: ListItemType }) => {
     try {
       await db.list.update(listItem.id, values);
       toggle();
-      showSuccessToast(`Successfully edited`);
+      showSuccessToast(MESSAGES.EDIT.SUCCESS);
     } catch (error) {
-      showErrorToast(`Failed to edit`);
+      showErrorToast(MESSAGES.EDIT.ERROR);
     }
   }
 

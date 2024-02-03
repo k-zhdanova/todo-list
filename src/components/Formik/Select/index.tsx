@@ -20,8 +20,6 @@ export const Select = ({ label, name, placeholder, required, options }: SelectPr
       <Label value={label} name={name} required={required} />
       <Dropdown
         className={meta.error && meta.touched ? styles.error : ''}
-        style="border"
-        width="full"
         options={options}
         placeholder={placeholder || "Select option"}
         onChange={(value) => setFieldValue(name, value)}

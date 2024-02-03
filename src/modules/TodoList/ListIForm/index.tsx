@@ -22,44 +22,41 @@ const initialValues: ListItemType = {
   order: 0,
 }
 
-export const ListForm = ({listItem, onSubmit}: ListFormProps) => {
-  
-  return (
-    <Formik initialValues={listItem || initialValues} onSubmit={onSubmit}>
-      {() => 
-        <>
-          <h2>{listItem ? 'Edit' : 'Add'} item</h2>
-          <Form className={styles.form}>
-            <Checkbox name="isDone" label="Is done" />
+export const ListForm = ({listItem, onSubmit}: ListFormProps) => (
+  <Formik initialValues={listItem || initialValues} onSubmit={onSubmit}>
+    {() => 
+      <>
+        <h2>{listItem ? 'Edit' : 'Add'} item</h2>
+        <Form className={styles.form}>
+          <Checkbox name="isDone" label="Is done" />
 
-            <Select
-              options={[
-                { value: '', label: 'None' }, 
-                ...CATEGORIES
-              ]}
-              label="Category"
-              name="category"
-              placeholder="Select category"
-            />
+          <Select
+            options={[
+              { value: '', label: 'None' }, 
+              ...CATEGORIES
+            ]}
+            label="Category"
+            name="category"
+            placeholder="Select category"
+          />
 
-            <Input 
-              name="title"
-              label="Title"
-              type="text"
-              placeholder="Enter title"
-              required
-            />
-            
-            <Textarea
-              name="description"
-              label="Description"
-              placeholder="Enter description"
-            />
+          <Input 
+            name="title"
+            label="Title"
+            type="text"
+            placeholder="Enter title"
+            required
+          />
+          
+          <Textarea
+            name="description"
+            label="Description"
+            placeholder="Enter description"
+          />
 
-            <Button type="submit">Save</Button>
-          </Form>
-        </>
-      }
-    </Formik>
-  )
-}
+          <Button type="submit">Save</Button>
+        </Form>
+      </>
+    }
+  </Formik>
+)

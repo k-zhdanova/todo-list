@@ -4,27 +4,18 @@ import { db } from "../../services/db";
 import { showErrorToast, showSuccessToast } from "../../services/toaster";
 import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import { useEffect, useState } from "react";
-import { FilterStatuses, FilterType, ListItemType } from "./types";
+import { FilterType, ListItemType } from "./types";
 import styles from './index.module.css';
 import { IconButton } from "../../ui/Button";
 import Modal from "../../ui/Modal";
 import useModal from "../../hooks/useModal";
 import { ListForm } from "./ListIForm";
-import { Dropdown } from "../../ui/Dropdown";
-import { CATEGORIES, FILTER_OPTIONS } from "./constants";
-import classNames from "classnames";
-import { useScrollWithShadow } from "../../hooks/useScrollWithShadow";
-
-const defaultFilter: FilterType = {
-  status: 'all',
-  category: ''
-}
+import { ListFilters } from "./ListFilters";
+import { DEFAULT_FILTER, MESSAGES } from "./constants";
 
 export const TodoList = () => {
-  const [filter, setFilter] = useState<FilterType>(defaultFilter);
+  const [filter, setFilter] = useState<FilterType>(DEFAULT_FILTER);
   const [list, setList] = useState<ListItemType[]>([]);
-  const { isOpen, toggle } = useModal();
-  const { boxShadow, onScrollHandler } = useScrollWithShadow();
 
   const dbList = useLiveQuery(
     () => db.list
@@ -41,7 +32,6 @@ export const TodoList = () => {
         })();
 
         const categoryFilter = filter.category ? item.category === filter.category : true;
-
         return statusFilter && categoryFilter;
       })
       .toArray()
@@ -61,20 +51,6 @@ export const TodoList = () => {
   }, [dbList]);
 
   const maxOrder = list?.reduce((acc, cur) => Math.max(acc, cur.order), 0);
-
-  const handleAdd = async (values: ListItemType) => {
-    try {
-      await db.list.add({
-        ...values,
-        order: maxOrder ? maxOrder + 1 : 1
-      });
-
-      toggle();
-      showSuccessToast(`Successfully added to the list`);
-    } catch (error) {
-      showErrorToast(`Failed to add to the list`);
-    }
-  }
 
   const onDragEnd = async (result: any) => {
     const { destination, source } = result;
@@ -103,47 +79,16 @@ export const TodoList = () => {
   return (
     <div className={styles.root}>
       <div className={styles.header}>
-        <IconButton
-          className={styles.addBtn}
-          style="primary"
-          action="add"
-          onClick={toggle}
-        >
-          ADD
-        </IconButton>
+        <AddButton maxOrder={maxOrder} />
 
-        <div className={styles.filters}>
-          <div className={styles.dropdownWrapper}>
-            <span>Category:</span>
-            <Dropdown
-              options={[
-                { value: '', label: 'All' },
-                ...CATEGORIES
-              ]}
-              value={filter.category}
-              onChange={(value) => setFilter((prev) => {
-                return {
-                  ...prev,
-                  category: value
-                }
-              })}
-            />
-          </div>
-
-          <div className={styles.dropdownWrapper}>
-            <span>Status:</span>
-            <Dropdown
-              options={FILTER_OPTIONS}
-              value={filter.status}
-              onChange={(value) => setFilter((prev) => {
-                return {
-                  ...prev,
-                  status: value as FilterStatuses
-                }
-              })}
-            />
-          </div>
-        </div>
+        <ListFilters filter={filter} onChange={(value) => {
+          setFilter((prev) => {
+            return {
+              ...prev,
+              ...value
+            }
+          })
+        }} />
       </div>
 
       <DragDropContext onDragEnd={onDragEnd} >
@@ -160,7 +105,7 @@ export const TodoList = () => {
                   index={index}
                   isDragDisabled={listItem.isDone}
                 >
-                  {(provided, snapshot) => (
+                  {(provided) => (
                     <div
                       ref={provided.innerRef}
                       {...provided.draggableProps}
@@ -178,12 +123,43 @@ export const TodoList = () => {
       </DragDropContext>
 
       {!list?.length && (
-        <p className={styles.emptyListMessage}>There is no item in the list</p>
+        <p className={styles.emptyListMessage}>{MESSAGES.NO_FOUND}</p>
       )}
+    </div>
+  )
+}
+
+const AddButton = ({maxOrder}: {maxOrder: number}) => {
+  const { isOpen, toggle } = useModal();
+
+  const handleAdd = async (values: ListItemType) => {
+    try {
+      await db.list.add({
+        ...values,
+        order: maxOrder ? maxOrder + 1 : 1
+      });
+
+      toggle();
+      showSuccessToast(MESSAGES.ADD.SUCCESS);
+    } catch (error) {
+      showErrorToast(MESSAGES.ADD.ERROR);
+    }
+  }
+
+  return (
+    <>
+      <IconButton
+        className={styles.addBtn}
+        style="primary"
+        action="add"
+        onClick={toggle}
+      >
+        ADD
+      </IconButton>
 
       <Modal isOpen={isOpen} onClose={toggle}>
         <ListForm onSubmit={handleAdd} />
       </Modal>
-    </div>
+    </>
   )
 }

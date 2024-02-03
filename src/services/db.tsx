@@ -8,7 +8,7 @@ export class ListService extends Dexie {
 
   constructor() {
     super(DB_NAME);
-    this.version(1).stores({
+    this.version(2).stores({
       list: '++id, title, description, category, isDone, order'
     });
   }

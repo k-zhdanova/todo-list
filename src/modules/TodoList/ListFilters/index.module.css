@@ -1,0 +1,22 @@
+.root {
+  display: flex;
+  gap: 24px;
+}
+
+.dropdownWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dropdownWrapper span {
+  color: var(--neutral-500);
+}
+
+@media (max-width: 576px) {
+  .root {
+    width: 100%;
+    justify-content: space-between;
+    gap: 8px;
+  }
+}

@@ -2,13 +2,6 @@
   width: fit-content;
   min-width: 150px;
   position: relative;
-}
-
-.root.auto {
-  width: fit-content;
-}
-
-.root.full {
   width: 100%;
 }
 
@@ -58,24 +51,13 @@
   font-weight: 700;
   line-height: 16px;
   cursor: pointer;
+  box-shadow: 0px 4px 8px 0px rgba(33, 33, 52, 0.1);
 }
 
 .selectedOption .value.withColor {
   display: flex;
   align-items: center;
   gap: 8px;
-}
-
-.root.full .selectedOption {
-  justify-content: space-between;
-}
-
-.root.shadow .selectedOption {
-  box-shadow: 0px 4px 8px 0px rgba(33, 33, 52, 0.1);
-}
-
-.root.border .selectedOption {
-  border: 1px solid var(--neutral-200);
 }
 
 .selectedOption svg {
@@ -89,7 +71,6 @@
   height: 12px;
   border-radius: 50%;
 }
-
 
 @media (max-width: 768px) {
   .options {

@@ -16,8 +16,6 @@ interface DropdownProps {
   placeholder?: string;
   onChange: (value: string) => void;
   value: string;
-  style?: 'shadow' | 'border';
-  width?: 'full' | 'auto';
 }
 
 export const Dropdown = ({
@@ -26,8 +24,6 @@ export const Dropdown = ({
   placeholder,
   onChange,
   value,
-  style = 'shadow',
-  width = 'auto',
 }: DropdownProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const selectedOption = useMemo(
@@ -37,7 +33,7 @@ export const Dropdown = ({
   const { ref } = useOutsideClick(() => setIsOpen(false));
 
   return (
-    <div className={cn(styles.root, styles[style], styles[width])} ref={ref}>
+    <div className={cn(styles.root)} ref={ref}>
       <div
         className={cn(styles.selectedOption, className)}
         onClick={() => setIsOpen((prev) => !prev)}

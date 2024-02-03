@@ -15,25 +15,6 @@
   margin-bottom: 24px;
 }
 
-.filters {
-  display: flex;
-  gap: 24px;
-}
-
-.dropdownWrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.dropdownWrapper span {
-  color: var(--neutral-500);
-}
-
-.dragging {
-  opacity: 0.7;
-}
-
 .emptyListMessage {
   text-align: center;
   color: var(--neutral-500);
@@ -68,12 +49,6 @@
 }
 
 @media (max-width: 576px) {
-  .filters {
-    width: 100%;
-    justify-content: space-between;
-    gap: 8px;
-  }
-
   .addBtn {
     width: 72px;
     height: 72px;
